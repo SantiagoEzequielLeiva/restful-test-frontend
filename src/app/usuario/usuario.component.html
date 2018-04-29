@@ -1,5 +1,8 @@
 <div class="container">
 	<h3>Usuarios</h3>
+	<p>
+		<button type="button" [routerLink]="['/usuarios/crear']" routerLinkActive="router-link-active"  class="waves-effect waves-light btn">Nuevo</button>
+	</p>
 	
 	<table class="stripped highlight">
 	  <thead>
@@ -11,10 +14,10 @@
 	  </thead>
 	
 	  <tbody>
-		<tr>
-		  <td></td>
-		  <td>Eclair</td>
-		  <td></td>
+		<tr *ngFor="let usuario of usuarios">
+		  <td>{{usuario.id}}</td>
+		  <td>{{usuario.username}}</td>
+		  <td><button type="button" [routerLink]="['/usuarios', usuario.id, 'editar']" routerLinkActive="router-link-active"  class="waves-effect waves-light btn">Editar</button></td>
 		</tr>
 	  </tbody>
 	</table>
