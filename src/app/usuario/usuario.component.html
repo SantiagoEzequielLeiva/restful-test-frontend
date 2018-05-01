@@ -1,24 +1,27 @@
 <div class="container">
 	<h3>Usuarios</h3>
 	<p>
-		<button type="button" [routerLink]="['/usuarios/crear']" routerLinkActive="router-link-active"  class="waves-effect waves-light btn">Nuevo</button>
+		<button type="button" [routerLink]="['/usuarios/crear']" routerLinkActive="router-link-active"  class="waves-effect waves-light btn blue">Nuevo</button>
 	</p>
 	
 	<table class="stripped highlight">
-	  <thead>
-		<tr>
-			<th>Id</th>
-			<th>Username</th>
-			<th>Acciones</th>
-		</tr>
-	  </thead>
-	
-	  <tbody>
-		<tr *ngFor="let usuario of usuarios">
-		  <td>{{usuario.id}}</td>
-		  <td>{{usuario.username}}</td>
-		  <td><button type="button" [routerLink]="['/usuarios', usuario.id, 'editar']" routerLinkActive="router-link-active"  class="waves-effect waves-light btn">Editar</button></td>
-		</tr>
-	  </tbody>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Username</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr *ngFor="let usuario of usuarios">
+				<td>{{usuario.id}}</td>
+				<td>{{usuario.username}}</td>
+				<td>
+					<button type="button" [routerLink]="['/usuarios', usuario.id, 'editar']" routerLinkActive="router-link-active" class="waves-effect waves-light btn">Editar</button>
+					<button type="button" (click)="eliminar(usuario.id)" class="waves-effect waves-light btn red darken-2">Eliminar</button>
+				</td>
+			</tr>
+		</tbody>
 	</table>
 </div>
